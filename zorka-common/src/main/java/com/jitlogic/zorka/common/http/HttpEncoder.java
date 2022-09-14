@@ -162,6 +162,7 @@ public class HttpEncoder implements HttpHandler {
 
     @Override
     public HttpMessage handle(HttpMessage m) {
+        state = 0;
         if (m.isResponse()) {
             responseLine(m.getVersion(), m.getStatus(), m.getStatusLine());
         } else {
