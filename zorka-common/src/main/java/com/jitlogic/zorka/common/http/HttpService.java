@@ -63,7 +63,7 @@ public class HttpService implements ZorkaService, HttpHandler {
     public HttpMessage handle(HttpMessage message) {
         for (Map.Entry<String,HttpHandler> e : endpoints.entrySet()) {
             if (e.getKey().equals(message.getUri())) {
-                System.out.println("k=" + e.getKey() + ", uri=" + message.getUri());
+                log.debug("k=" + e.getKey() + ", uri=" + message.getUri());
                 return e.getValue().handle(message);
             }
         }
